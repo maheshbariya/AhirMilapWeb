@@ -4,6 +4,7 @@ export const en = {
   nav_about: "About Us",
   nav_privacy: "Privacy Policy",
   nav_contact: "Contact Us",
+  nav_login: "Login",
   lang_en: "English",
   lang_gu: "ગુજરાતી",
 
@@ -208,6 +209,30 @@ export const en = {
   contact_address_ahmedabad_val: "Ahmedabad, Gujarat, India",
   contact_hours_lbl: "Support Hours",
   contact_hours_val: "Monday - Sunday: 9:00 AM to 9:00 PM (IST)",
+
+  // Login Page
+  login_breadcrumb: "Login",
+  login_eyebrow: "Member Access",
+  login_title: "Welcome back to AhirMilap",
+  login_subtitle: "Sign in to continue your matrimonial journey, manage your profile, and connect with trusted Ahir families.",
+  login_highlight_verified: "Verified Profiles",
+  login_highlight_private: "Private & Secure",
+  login_highlight_family: "Family Friendly",
+  login_trust_title: "Protected member login",
+  login_trust_desc: "Your account access is designed for privacy, verified profiles, and respectful community connections.",
+  login_form_title: "Login to Your Account",
+  login_form_subtitle: "Use your registered mobile number or email address.",
+  login_identity_label: "Email or Mobile Number",
+  login_identity_placeholder: "Enter email or mobile number",
+  login_password_label: "Password",
+  login_password_placeholder: "Enter your password",
+  login_forgot: "Forgot password?",
+  login_remember: "Keep me signed in",
+  login_submit: "Sign In",
+  login_signing_in: "Signing in...",
+  login_success: "Login request received. Authentication can be connected here.",
+  login_or: "New member",
+  login_create_profile: "Create or verify your profile",
+  login_show_password: "Show password",
+  login_hide_password: "Hide password",
 };
-
-

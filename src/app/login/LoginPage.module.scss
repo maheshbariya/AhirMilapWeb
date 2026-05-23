@@ -1,0 +1,406 @@
+@import '../../styles/variables';
+
+.loginPage {
+  min-height: 100svh;
+  padding-top: 10.5rem;
+  padding-bottom: 7.5rem;
+  background:
+    linear-gradient(135deg, rgba($primary-color, 0.06), rgba($accent-color, 0.08)),
+    $bg-color;
+
+  @media (max-width: $breakpoint-md) {
+    padding-top: 8.5rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: $text-muted;
+  font-size: 0.875rem;
+  font-weight: 600;
+
+  a {
+    color: $text-secondary;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.separator {
+  color: rgba($primary-color, 0.25);
+}
+
+.current {
+  color: $primary-color;
+}
+
+.loginShell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(380px, 0.95fr);
+  overflow: hidden;
+  background: $white;
+  border: 1px solid rgba($primary-color, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgba($primary-color, 0.08);
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    border-radius: 20px;
+  }
+}
+
+.brandPanel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 560px;
+  padding: 3.25rem;
+  color: $white;
+  background:
+    linear-gradient(135deg, rgba(27, 12, 15, 0.78), rgba($primary-color, 0.9)),
+    url('/images/HeroBanner.jpg');
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width: $breakpoint-lg) {
+    min-height: auto;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 3rem 2rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: $accent-color;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 640px;
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.subtitle {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+  }
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 56px;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  svg {
+    flex-shrink: 0;
+    color: $accent-color;
+  }
+}
+
+.trustCard {
+  display: flex;
+  gap: 1rem;
+  max-width: 520px;
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+
+  strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: $white;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
+
+.trustIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  background: rgba($accent-color, 0.18);
+  border-radius: 50%;
+  color: $accent-color;
+}
+
+.formPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.25rem;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 3rem 2rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.formHeader {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    margin-bottom: 0.35rem;
+    color: $primary-color;
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    font-weight: 700;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+}
+
+.formIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  background: rgba($primary-color, 0.08);
+  border-radius: 16px;
+  color: $primary-color;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.formGroup {
+  label {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: $primary-color;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  a {
+    margin-bottom: 0.55rem;
+    color: $primary-color;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 54px;
+  padding: 0 1rem;
+  background: rgba($primary-color, 0.02);
+  border: 1px solid rgba($primary-color, 0.12);
+  border-radius: 14px;
+  color: $primary-color;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  &:focus-within {
+    background: $white;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.06);
+  }
+
+  input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: $text-main;
+    font-family: inherit;
+    font-size: 1rem;
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+}
+
+.passwordToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: $text-secondary;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: rgba($primary-color, 0.08);
+    color: $primary-color;
+  }
+}
+
+.rememberRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: fit-content;
+  color: $text-secondary;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  input {
+    width: 18px;
+    height: 18px;
+    accent-color: $primary-color;
+  }
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 1rem 1.5rem;
+  background: $primary-color;
+  border-radius: 14px;
+  color: $white;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 10px 22px rgba($primary-color, 0.22);
+
+  &:hover:not(:disabled) {
+    background: $primary-light;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba($primary-color, 0.28);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1rem;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.16);
+  border-radius: 14px;
+  color: #16803c;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  color: $text-muted;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba($primary-color, 0.1);
+  }
+}
+
+.createLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 52px;
+  padding: 0.9rem 1.25rem;
+  background: rgba($accent-color, 0.12);
+  border: 1px solid rgba($accent-color, 0.3);
+  border-radius: 14px;
+  color: $primary-color;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: rgba($accent-color, 0.18);
+    transform: translateY(-1px);
+  }
+}

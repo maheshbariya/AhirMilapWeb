@@ -19,6 +19,7 @@ const Header = () => {
     { href: '/about', label: t('nav_about') },
     { href: '/privacy', label: t('nav_privacy') },
     { href: '/contact', label: t('nav_contact') },
+    { href: '/login', label: t('nav_login') },
   ];
 
   // Track window scroll to toggle sticky state
