@@ -3,6 +3,10 @@
 .section {
   padding: 6rem 0;
   background: #fdfdfd; // Very light grey/off-white like the reference
+
+  @media (max-width: $breakpoint-md) {
+    padding: 4rem 0;
+  }
 }
 
 .layout {
@@ -22,14 +26,14 @@
 }
 
 .title {
-  font-size: 2.75rem;
+  font-size: clamp(2rem, 6vw, 2.75rem);
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 1.5rem;
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   color: #4a4a4a;
   line-height: 1.6;
   margin-bottom: 3rem;
@@ -55,6 +59,10 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 1.5rem;
+  }
 
   &:hover {
     transform: translateY(-5px);
@@ -116,6 +124,11 @@
   // height: auto;
   border-radius: 40px;
   // box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.2);
+
+  // @media (max-width: $breakpoint-sm) {
+  //   max-width: 250px;
+  //   border-radius: 30px;
+  // }
 }
 
 .floatingBadge {
@@ -140,6 +153,18 @@
 
   @media (max-width: $breakpoint-md) {
     left: 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    left: 50%;
+    top: auto;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    padding: 0.85rem 1rem;
+    border-radius: 14px;
+    flex-direction: row;
+    white-space: nowrap;
+    animation: none;
   }
 }
 

@@ -5,6 +5,10 @@
   background: $bg-beige;
   text-align: center;
   overflow: hidden;
+
+  @media (max-width: $breakpoint-md) {
+    padding-top: 4rem;
+  }
 }
 
 .header {
@@ -37,6 +41,11 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .storeBtn {
@@ -50,6 +59,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
+  min-width: 170px;
 
   &:hover {
     background: #1a1a1a;
@@ -92,6 +102,14 @@
   max-width: 1000px;
   margin: 0 auto;
   height: 500px; // Fixed height container
+
+  @media (max-width: $breakpoint-md) {
+    height: 430px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    height: 360px;
+  }
 }
 
 .phone {
@@ -115,6 +133,11 @@
 
   @media (max-width: $breakpoint-md) {
     width: 280px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: min(72vw, 250px);
+    bottom: -80px;
   }
 }
 

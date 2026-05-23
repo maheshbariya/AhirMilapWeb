@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './PrivacyPage.module.scss';
@@ -10,7 +10,7 @@ export default function PrivacyPage() {
   const [activeSection, setActiveSection] = useState('introduction');
 
   // List of sections for Table of Contents
-  const sections = [
+  const sections = useMemo(() => [
     { id: 'introduction', label: t('privacy_introduction_title') },
     { id: 'collection', label: t('privacy_collect_title') },
     { id: 'usage', label: t('privacy_usage_title') },
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
     { id: 'grievance', label: t('privacy_grievance_title') },
     { id: 'deletion', label: t('privacy_deletion_title') },
     { id: 'contact', label: t('privacy_contact_title') }
-  ];
+  ], [t]);
 
   // Track active section on scroll
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
         if (el) observer.unobserve(el);
       });
     };
-  }, []);
+  }, [sections]);
 
   // Smooth scroll handler
   const handleScrollTo = (e, id) => {

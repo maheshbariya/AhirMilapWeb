@@ -106,6 +106,10 @@
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-wrap: wrap;
+  }
 }
 
 .miniBadge {
@@ -139,6 +143,12 @@
 .legal {
   display: flex;
   gap: 2rem;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
   
   a {
     font-size: 0.875rem;

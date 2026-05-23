@@ -3,6 +3,10 @@
 .about {
   padding: 7.5rem 0;
   background: $white; // Changed from beige to match image better
+
+  @media (max-width: $breakpoint-md) {
+    padding: 4rem 0;
+  }
 }
 
 .flex {
@@ -26,7 +30,7 @@
 }
 
 .title {
-  font-size: 2.75rem;
+  font-size: clamp(2rem, 6vw, 2.75rem);
   font-weight: 800;
   color: $primary-color;
   line-height: 1.2;
@@ -46,6 +50,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: $breakpoint-md) {
+    height: 440px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 .imgWrapper1 {
@@ -58,6 +75,17 @@
   overflow: hidden;
   box-shadow: $shadow-lg;
   z-index: 1;
+
+  @media (max-width: $breakpoint-md) {
+    width: 68%;
+    height: 360px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    position: relative;
+    width: 100%;
+    height: 320px;
+  }
 }
 
 .imgWrapper2 {
@@ -71,6 +99,17 @@
   box-shadow: $shadow-lg;
   z-index: 2;
   background: $primary-color; // Fallback
+
+  @media (max-width: $breakpoint-md) {
+    width: 58%;
+    height: 300px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    position: relative;
+    width: 100%;
+    height: 320px;
+  }
 }
 
 .img {

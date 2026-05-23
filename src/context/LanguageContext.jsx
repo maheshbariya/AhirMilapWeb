@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { en } from '../locales/en';
 import { gu } from '../locales/gu';
 
@@ -12,15 +12,16 @@ const translations = {
 };
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState('EN');
-
-  // Load saved language from localStorage on mount
-  useEffect(() => {
-    const savedLang = localStorage.getItem('ahirmilap_lang');
-    if (savedLang && (savedLang === 'EN' || savedLang === 'GU')) {
-      setLang(savedLang);
+  const [lang, setLang] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedLang = window.localStorage.getItem('ahirmilap_lang');
+      if (savedLang === 'EN' || savedLang === 'GU') {
+        return savedLang;
+      }
     }
-  }, []);
+
+    return 'EN';
+  });
 
   const toggleLanguage = () => {
     setLang(prev => {

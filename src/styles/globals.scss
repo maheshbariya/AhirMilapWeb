@@ -17,6 +17,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-padding-top: 88px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -74,7 +78,7 @@ button {
 }
 
 section {
-  padding: 5rem 0;
+  padding: 4rem 0;
   
   @media (min-width: $breakpoint-lg) {
     padding: 7.5rem 0;
@@ -82,5 +86,5 @@ section {
 }
 
 h1, h2, h3 {
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
 }

@@ -13,10 +13,8 @@ const comforter = Comforter({
 
 const SplashScreen = () => {
   const [show, setShow] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
     document.body.style.overflow = 'hidden'; // Prevent scrolling
     
     const timer = setTimeout(() => {
@@ -29,9 +27,6 @@ const SplashScreen = () => {
       document.body.style.overflow = 'unset';
     };
   }, []);
-
-  // Avoid hydration mismatch by not rendering anything until mounted
-  if (!isMounted) return null;
 
   return (
     <AnimatePresence>
