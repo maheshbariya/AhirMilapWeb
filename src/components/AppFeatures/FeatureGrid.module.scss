@@ -1,0 +1,158 @@
+@import '../../styles/variables';
+
+.section {
+  padding: 6rem 0;
+  background: #fdfdfd; // Very light grey/off-white like the reference
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.contentSide {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: $breakpoint-sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.iconBox {
+  margin-bottom: 1.5rem;
+  color: $primary-color;
+}
+
+.iconSVG {
+  stroke-width: 2;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $primary-color;
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-size: 0.9375rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.learnMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: $primary-color;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.imageSide {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.phoneWrapper {
+  position: relative;
+}
+
+.phoneImg {
+  width: 100%;
+  max-width: 340px;
+  // height: auto;
+  border-radius: 40px;
+  // box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.2);
+}
+
+.floatingBadge {
+  position: absolute;
+  top: 20%;
+  left: -40px;
+  background: $primary-color;
+  color: white;
+  padding: 1.25rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 15px 30px rgba(126, 29, 43, 0.3);
+  animation: float 6s ease-in-out infinite;
+
+  span {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    left: 0;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}

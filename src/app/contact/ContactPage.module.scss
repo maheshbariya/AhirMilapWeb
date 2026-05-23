@@ -1,0 +1,307 @@
+@import '../../styles/variables';
+
+.contactPage {
+  background-color: $bg-color;
+  padding-top: 10.5rem;
+  padding-bottom: 7.5rem;
+  font-family: $font-family-base;
+
+  @media (max-width: $breakpoint-md) {
+    padding-top: 8.5rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $text-muted;
+  margin-bottom: 1.5rem;
+
+  a {
+    color: $text-secondary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .separator {
+    color: rgba($primary-color, 0.2);
+  }
+
+  .current {
+    color: $primary-color;
+  }
+}
+
+.headerArea {
+  max-width: 800px;
+  margin-bottom: 4rem;
+
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: $primary-color;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2.25rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: $text-secondary;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4.5rem;
+  align-items: start;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+// Left side: Contact Info
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoCard {
+  background: #ffffff;
+  border: 1px solid rgba($primary-color, 0.06);
+  border-left: 4px solid $accent-color;
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 4px 20px rgba($primary-color, 0.02);
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba($primary-color, 0.05);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: rgba($primary-color, 0.03);
+  color: $primary-color;
+  flex-shrink: 0;
+}
+
+.cardContent {
+  flex-grow: 1;
+
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 750;
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+// Offices layout
+.officesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.officeItem {
+  h5 {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-size: 0.875rem !important;
+    line-height: 1.5;
+    color: $text-secondary;
+  }
+}
+
+// Right side: Send a message Form
+.formSection {
+  background: #ffffff;
+  border: 1px solid rgba($primary-color, 0.06);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba($primary-color, 0.03);
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .formSubtitle {
+    font-size: 0.9375rem;
+    color: $text-secondary;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid rgba($primary-color, 0.12);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    color: $text-main;
+    background: rgba($primary-color, 0.01);
+    transition: all 0.2s ease;
+
+    &::placeholder {
+      color: $text-muted;
+      font-size: 0.9375rem;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba($primary-color, 0.05);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: $primary-color;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 12px rgba($primary-color, 0.15);
+
+  &:hover:not(:disabled) {
+    background: lighten($primary-color, 4%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba($primary-color, 0.25);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Success State Card
+.successMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+
+  .successIcon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.1);
+    color: rgb(34, 197, 94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+}

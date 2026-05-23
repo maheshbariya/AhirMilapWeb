@@ -1,0 +1,69 @@
+@import '../../styles/variables';
+
+.mission {
+  background: #fdf2f2;
+}
+
+.card {
+  background: $white;
+  border-radius: 32px;
+  padding: 3rem;
+  box-shadow: $shadow-lg;
+  
+  @media (min-width: $breakpoint-lg) {
+    padding: 5rem;
+  }
+}
+
+.content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subtitle {
+  color: #980F3D;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.item {
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #980F3D;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+}

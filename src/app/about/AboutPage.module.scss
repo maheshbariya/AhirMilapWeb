@@ -1,0 +1,916 @@
+@import '../../styles/variables';
+
+// General animations
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-gold {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+.aboutPage {
+  background-color: $bg-color;
+  overflow: hidden;
+}
+
+// 1. Hero Section
+.heroSection {
+  position: relative;
+  padding-top: 10.5rem; // Accommodate absolute header
+  padding-bottom: 6rem;
+  background: linear-gradient(180deg, rgba($primary-color, 0.06) 0%, rgba($white, 0) 100%);
+  border-bottom: 1px solid rgba($primary-color, 0.05);
+
+  @media (max-width: $breakpoint-md) {
+    padding-top: 8.5rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $text-muted;
+  margin-bottom: 2rem;
+
+  a {
+    color: $text-secondary;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .separator {
+    color: rgba($primary-color, 0.2);
+    font-size: 0.75rem;
+  }
+
+  .current {
+    color: $primary-color;
+  }
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.heroContent {
+  .heroTitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: $primary-color;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2.5rem;
+    }
+  }
+
+  .heroSubtitle {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    line-height: 1.8;
+    max-width: 650px;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.heroImageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba($accent-color, 0.1) 0%, rgba($white, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 420px;
+  border-radius: 30px;
+  padding: 12px;
+  background: $white;
+  box-shadow: $shadow-lg, 0 20px 40px rgba($primary-color, 0.08);
+  border: 1px solid rgba($primary-color, 0.08);
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+
+  @media (max-width: $breakpoint-md) {
+    height: 320px;
+    max-width: 320px;
+  }
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+// Decorative element
+.goldRing {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  border: 4px dashed rgba($accent-color, 0.3);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+// 2. Our Story Section
+.storySection {
+  padding: 7.5rem 0;
+  background-color: $white;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 5rem 0;
+  }
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 5rem;
+  align-items: center;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+}
+
+.storyImageWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .imageCard1 {
+    width: 85%;
+    height: 460px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+    border: 6px solid $white;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: $breakpoint-md) {
+      height: 340px;
+      width: 100%;
+    }
+  }
+
+  .imageBadge {
+    position: absolute;
+    bottom: 30px;
+    left: -20px;
+    background: $primary-color;
+    color: $white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba($primary-color, 0.2);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-left: 4px solid $accent-color;
+
+    @media (max-width: $breakpoint-md) {
+      left: 15px;
+      bottom: 15px;
+      padding: 0.75rem 1.25rem;
+    }
+
+    .badgeText {
+      display: flex;
+      flex-direction: column;
+
+      .badgeTitle {
+        font-size: 1.125rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+      .badgeSubtitle {
+        font-size: 0.75rem;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 85%;
+    height: 460px;
+    border-radius: 24px;
+    border: 2px solid rgba($accent-color, 0.4);
+    z-index: 1;
+    pointer-events: none;
+
+    @media (max-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
+}
+
+.storyContent {
+  .sectionLabel {
+    color: $accent-color;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .sectionTitle {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2.25rem;
+    }
+  }
+
+  .storyText {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    line-height: 1.85;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 2rem;
+    border-left: 3px solid rgba($primary-color, 0.15);
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 1rem;
+      padding-left: 1.25rem;
+    }
+  }
+}
+
+// 3. Mission Section
+.missionSection {
+  padding: 7.5rem 0;
+  background-color: $bg-beige;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 5rem 0;
+  }
+}
+
+.centerHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem auto;
+
+  .sectionLabel {
+    color: $accent-color;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .sectionTitle {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: $primary-color;
+    line-height: 1.2;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2.25rem;
+    }
+  }
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: $breakpoint-xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.missionCard {
+  background: $white;
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  box-shadow: $shadow-sm;
+  border: 1px solid rgba($primary-color, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: rgba($primary-color, 0.05);
+    color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .missionCardTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 0.75rem;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .missionText {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $text-secondary;
+    line-height: 1.65;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-lg, 0 15px 30px rgba($primary-color, 0.05);
+    border-color: rgba($primary-color, 0.1);
+
+    .iconWrapper {
+      background: $primary-gradient;
+      color: $white;
+      transform: scale(1.1);
+    }
+  }
+
+  // Highlight the center card or first card subtly
+  &:nth-child(3) {
+    border: 1px solid rgba($accent-color, 0.3);
+    background: linear-gradient(180deg, $white 0%, rgba($bg-beige, 0.3) 100%);
+  }
+}
+
+// 4. Premium Profiles Section
+.profilesSection {
+  padding: 7.5rem 0;
+  background-color: $white;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 5rem 0;
+  }
+}
+
+.profilesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.profilesContent {
+  .description {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    line-height: 1.85;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.statCard {
+  background: rgba($primary-color, 0.02);
+  border: 1px solid rgba($primary-color, 0.05);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  .statNumber {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .statLabel {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $text-secondary;
+    letter-spacing: 0.02em;
+  }
+
+  &:hover {
+    background: $white;
+    border-color: rgba($accent-color, 0.4);
+    box-shadow: $shadow-md;
+    transform: translateY(-3px);
+  }
+}
+
+// Visual layout with blur placeholders
+.profilesVisual {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  position: relative;
+
+  .visualBg {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    background: radial-gradient(circle, rgba($accent-color, 0.12) 0%, rgba($white, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+.profileBlurCard {
+  background: $white;
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: $shadow-md;
+  border: 1px solid rgba($primary-color, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  .avatarPlaceholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($primary-color, 0.1) 0%, rgba($accent-color, 0.2) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 1.25rem;
+    border: 3px solid $white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    position: relative;
+
+    .badge {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #10B981; // Green verified badge
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid $white;
+    }
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $text-main;
+    margin-bottom: 0.375rem;
+  }
+
+  .cardSubtitle {
+    font-size: 0.8125rem;
+    color: $text-secondary;
+    font-weight: 600;
+    background: rgba($primary-color, 0.05);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+  }
+
+  // Floating detail blur lines for premium feel
+  .detailsMock {
+    width: 100%;
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .mockLine {
+      height: 6px;
+      background: #F3F4F6;
+      border-radius: 99px;
+      &:nth-child(1) { width: 85%; }
+      &:nth-child(2) { width: 60%; }
+    }
+  }
+
+  // Shift second and fourth cards down slightly on desktop for asymmetrical feel
+  &:nth-child(even) {
+    transform: translateY(2rem);
+
+    @media (max-width: $breakpoint-md) {
+      transform: translateY(0);
+    }
+  }
+}
+
+// 5. Why Choose Section
+.chooseSection {
+  padding: 7.5rem 0;
+  background-color: $bg-light;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 5rem 0;
+  }
+}
+
+.chooseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureCard {
+  background: $white;
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  box-shadow: $shadow-sm;
+  border: 1px solid rgba($primary-color, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    transition: background 0.3s ease;
+  }
+
+  .cardNumber {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: rgba($primary-color, 0.04);
+    line-height: 1;
+    font-family: 'Raleway', sans-serif;
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+
+  .featureIcon {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: rgba($accent-color, 0.1);
+    color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .featureTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 1rem;
+    padding-right: 2rem; // Ensure no title overlapping with card number
+  }
+
+  .featureDesc {
+    font-size: 0.9375rem;
+    color: $text-secondary;
+    line-height: 1.6;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-lg, 0 20px 40px rgba($primary-color, 0.05);
+
+    &::before {
+      background: $primary-gradient;
+    }
+
+    .cardNumber {
+      color: rgba($accent-color, 0.1);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    .featureIcon {
+      background: $primary-color;
+      color: $white;
+      transform: rotate(5deg) scale(1.05);
+    }
+  }
+}
+
+// 6. Vision Section
+.visionSection {
+  padding: 8.5rem 0;
+  background: linear-gradient(135deg, #59111C 0%, #7E1D2B 50%, #9B2C3B 100%);
+  color: $white;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 6rem 0;
+  }
+
+  // Soft glowing decorative shapes
+  &::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: -150px;
+    background: radial-gradient(circle, rgba($accent-color, 0.15) 0%, rgba($white, 0) 70%);
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    bottom: -175px;
+    right: -175px;
+    background: radial-gradient(circle, rgba($accent-color, 0.15) 0%, rgba($white, 0) 70%);
+    border-radius: 50%;
+  }
+}
+
+.visionContainer {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .visionLabel {
+    color: $accent-color;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .visionTitle {
+    font-size: 3.25rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2.25rem;
+    }
+  }
+
+  .visionText {
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: rgba($white, 0.9);
+    font-weight: 400;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+  }
+}
+
+// 7. CTA Section
+.ctaSection {
+  padding: 7.5rem 0;
+  background-color: $white;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 5rem 0;
+  }
+}
+
+.ctaCard {
+  position: relative;
+  background: linear-gradient(135deg, #7E1D2B 0%, #9B2C3B 100%);
+  border-radius: 36px;
+  padding: 5rem 4rem;
+  overflow: hidden;
+  box-shadow: $shadow-lg, 0 30px 60px rgba($primary-color, 0.15);
+  border: 1px solid rgba($accent-color, 0.25);
+  color: $white;
+  text-align: center;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 4rem 2rem;
+    border-radius: 24px;
+  }
+
+  // Glow decor
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($white, 0.08) 0%, rgba($white, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .ctaLabel {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    color: $accent-color;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    background: rgba($white, 0.08);
+    padding: 0.5rem 1.25rem;
+    border-radius: 99px;
+    border: 1px solid rgba($white, 0.15);
+  }
+
+  .ctaTitle {
+    position: relative;
+    z-index: 1;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    line-height: 1.2;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2rem;
+    }
+  }
+
+  .ctaSubtitle {
+    position: relative;
+    z-index: 1;
+    font-size: 1.25rem;
+    color: rgba($white, 0.85);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 1rem;
+      margin-bottom: 2.25rem;
+    }
+  }
+}
+
+.ctaButtons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .ctaBtnPrimary {
+    padding: 1rem 2.5rem;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, $accent-color 0%, #C49F27 100%);
+    color: $primary-color;
+    box-shadow: 0 4px 15px rgba($accent-color, 0.3);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba($accent-color, 0.5);
+      background: linear-gradient(135deg, #E6C148 0%, #D4AF37 100%);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+
+  .ctaBtnSecondary {
+    padding: 1rem 2.5rem;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgba($white, 0.3);
+    color: $white;
+    background: transparent;
+
+    &:hover {
+      background: rgba($white, 0.1);
+      border-color: $white;
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+}

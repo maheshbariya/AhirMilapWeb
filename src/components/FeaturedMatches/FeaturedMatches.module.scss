@@ -1,0 +1,147 @@
+@import '../../styles/variables';
+
+.matches {
+  padding: 7.5rem 0;
+  background: $white;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: $primary-color;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: $text-secondary;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: $white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.imagePlaceholder {
+  height: 240px;
+  background: #f1f5f9;
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #3b82f6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.info {
+  padding: 1.5rem;
+}
+
+.nameRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+}
+
+.age {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.location, .role {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.viewBtn, .interestBtn {
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.viewBtn {
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  
+  &:hover {
+    background: #f8fafc;
+  }
+}
+
+.interestBtn {
+  background: $primary-color;
+  color: white;
+  
+  &:hover {
+    background: $primary-light;
+  }
+}
+
+.footer {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.viewAllBtn {
+  padding: 0.75rem 2.5rem;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+  border-radius: 999px;
+  font-weight: 600;
+  
+  &:hover {
+    background: $bg-light;
+  }
+}

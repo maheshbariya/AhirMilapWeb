@@ -1,0 +1,86 @@
+@import 'variables';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: $font-family-base;
+  color: $text-main;
+  background-color: $bg-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 2rem;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  
+  &-primary {
+    background: $primary-gradient;
+    color: $white;
+    
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  
+  &-secondary {
+    border: 1px solid rgba($primary-color, 0.2);
+    color: $text-main;
+    background: $white;
+    
+    &:hover {
+      background: $bg-light;
+    }
+  }
+}
+
+section {
+  padding: 5rem 0;
+  
+  @media (min-width: $breakpoint-lg) {
+    padding: 7.5rem 0;
+  }
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.025em;
+}

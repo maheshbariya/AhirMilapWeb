@@ -1,0 +1,143 @@
+@import '../../styles/variables';
+
+.teaser {
+  padding: 6rem 0 0 0; // No padding bottom, images stick to bottom
+  background: $bg-beige;
+  text-align: center;
+  overflow: hidden;
+}
+
+.header {
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+  padding: 0 1rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: $text-main;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: $primary-color; // Using web theme color instead of green
+  line-height: 1.2;
+  margin-bottom: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2rem;
+  }
+}
+
+.appBadges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.storeBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  background: #000000;
+  color: white;
+  border: 1px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.storeIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.btnText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.btnSub {
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 0.125rem;
+  opacity: 0.9;
+}
+
+.btnMain {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.phonesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 500px; // Fixed height container
+}
+
+.phone {
+  position: absolute;
+  bottom: -100px; // Slightly below the fold
+
+  &Img {
+    width: 100%;
+    height: auto;
+    display: block;
+    // box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 36px; // For iPhone style mockup
+  }
+}
+
+.phoneCenter {
+  width: 320px;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%) !important;
+
+  @media (max-width: $breakpoint-md) {
+    width: 280px;
+  }
+}
+
+.phoneLeft {
+  width: 280px;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-165%) !important; // Move left
+  bottom: -120px; // Lower than center
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.phoneRight {
+  width: 280px;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(65%) !important; // Move right
+  bottom: -120px; // Lower than center
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
