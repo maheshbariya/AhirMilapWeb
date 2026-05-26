@@ -33,6 +33,7 @@ const Footer = () => {
               <li><Link href="/">{t('nav_home')}</Link></li>
               <li><Link href="/about">{t('nav_about')}</Link></li>
               <li><Link href="/privacy">{t('nav_privacy')}</Link></li>
+              <li><Link href="/child-safety-standards">Child Safety</Link></li>
               <li><Link href="/contact">{t('nav_contact')}</Link></li>
             </ul>
           </div>
@@ -62,6 +63,7 @@ const Footer = () => {
           </div>
           <div className={styles.legal}>
             <Link href="/privacy">{t('nav_privacy')}</Link>
+            <Link href="/child-safety-standards">Child Safety Standards</Link>
             <Link href="/contact">{t('nav_contact')}</Link>
           </div>
         </div>

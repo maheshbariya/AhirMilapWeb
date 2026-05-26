@@ -1,0 +1,709 @@
+@import '../../styles/variables';
+
+.safetyPage {
+  background-color: $bg-color;
+  padding-top: 10.5rem; // Accommodate the header
+  padding-bottom: 7.5rem;
+  font-family: $font-family-base;
+
+  @media (max-width: $breakpoint-md) {
+    padding-top: 8.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  section {
+    padding: 0; // Override default section padding since we handle spacing here
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $text-muted;
+  margin-bottom: 1.5rem;
+
+  a {
+    color: $text-secondary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .separator {
+    color: rgba($primary-color, 0.2);
+  }
+
+  .current {
+    color: $primary-color;
+  }
+}
+
+// Hero banner section
+.heroSection {
+  background: linear-gradient(135deg, #59111C 0%, $primary-color 40%, $primary-light 100%);
+  color: $white;
+  padding: 4.5rem 4rem;
+  border-radius: 28px;
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba($primary-color, 0.25), 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  min-height: 340px;
+
+  // Background decorative glowing orbs
+  &::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -5%;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($accent-color, 0.2) 0%, transparent 65%);
+    filter: blur(50px);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -8%;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($white, 0.06) 0%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: column;
+    text-align: center;
+    padding: 3.5rem 2rem;
+    gap: 2.5rem;
+    min-height: auto;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+  }
+}
+
+.heroContent {
+  flex: 1;
+  z-index: 2;
+  padding: 25px;
+
+  .datePill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba($white, 0.1);
+    border: 1px solid rgba($white, 0.18);
+    color: $accent-color;
+    padding: 0.5rem 1.1rem;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+    backdrop-filter: blur(8px);
+  }
+
+  h1 {
+    font-size: 3.25rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.025em;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba($white, 0.85);
+    max-width: 540px;
+    margin-bottom: 2.25rem;
+    font-weight: 400;
+
+    @media (max-width: $breakpoint-lg) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.heroIllustration {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+  width: 220px;
+  height: 220px;
+
+  // Pulsing gold glow behind the shield
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -15%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($accent-color, 0.15) 0%, transparent 65%);
+    animation: pulseGlow 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  svg {
+    filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.3));
+    animation: shieldFloat 5s ease-in-out infinite alternate;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    width: 180px;
+    height: 180px;
+    order: -1; // Move illustration above text on mobile
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@keyframes shieldFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+// CTA button styles in hero
+.reportCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  background-color: $white;
+  color: $primary-color;
+  padding: 0.9rem 2.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.01em;
+
+  svg {
+    animation: none !important;
+    filter: none !important;
+  }
+
+  &:hover {
+    background-color: $accent-color;
+    color: #1A1A1A;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba($accent-color, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Grid structure
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 4rem;
+  align-items: start;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+// Table of Contents Sidebar
+.sidebar {
+  position: sticky;
+  top: 7.5rem;
+  padding: 0;
+  max-height: calc(100vh - 10rem);
+  overflow-y: auto;
+
+  @media (max-width: $breakpoint-lg) {
+    position: static;
+    max-height: none;
+    border-bottom: 1px solid rgba($primary-color, 0.08);
+    padding-bottom: 1.5rem;
+  }
+}
+
+.sidebarTitle {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: $primary-light;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba($primary-color, 0.06);
+  padding-bottom: 0.5rem;
+}
+
+.sidebarMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+
+  @media (max-width: $breakpoint-lg) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: $text-secondary;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+
+  &:hover {
+    color: $primary-color;
+    padding-left: 0.5rem;
+  }
+
+  &.active {
+    color: $primary-color;
+    border-left-color: $accent-color;
+    font-weight: 700;
+    padding-left: 0.75rem;
+  }
+}
+
+// Content area
+.contentArea {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section {
+  scroll-margin-top: 8rem; // offset for smooth scrolls
+
+  h2 {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    svg {
+      color: $primary-light;
+    }
+  }
+
+  p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// CSAE Zero Tolerance Alert Panel
+.zeroToleranceAlert {
+  background: #fff5f5;
+  border-left: 5px solid #d32f2f;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-top: 1.5rem;
+  box-shadow: $shadow-sm;
+
+  .alertHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #c62828;
+    font-weight: 800;
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+
+    svg {
+      color: #d32f2f;
+    }
+  }
+
+  p {
+    font-size: 0.975rem;
+    line-height: 1.6;
+    color: #b71c1c;
+    margin: 0;
+    font-weight: 500;
+  }
+}
+
+// Soft safety cards grid
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.safetyCard {
+  background-color: $white;
+  border: 1px solid rgba($primary-color, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    transition: background-color 0.2s ease;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md, 0 10px 20px rgba($primary-color, 0.03);
+    border-color: rgba($primary-color, 0.15);
+
+    &::before {
+      background: $primary-gradient;
+    }
+
+    .cardIcon {
+      background-color: rgba($primary-color, 0.08);
+      color: $primary-color;
+      transform: scale(1.05);
+    }
+  }
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background-color: rgba($primary-color, 0.04);
+  color: $primary-light;
+  margin-bottom: 1.25rem;
+  transition: all 0.25s ease;
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: $primary-color;
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: $text-secondary;
+}
+
+// Underage policy box
+.agePolicyBox {
+  background: linear-gradient(to right, $bg-light 0%, rgba($accent-color, 0.03) 100%);
+  border: 1px solid rgba($primary-color, 0.08);
+  border-radius: 20px;
+  padding: 2.25rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  box-shadow: $shadow-sm;
+
+  .ageIconWrapper {
+    background-color: $white;
+    border: 1px solid rgba($primary-color, 0.1);
+    color: $primary-color;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: $shadow-sm;
+    font-size: 1.25rem;
+    font-weight: 800;
+  }
+
+  .ageDetails {
+    flex: 1;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: $primary-color;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 0.975rem;
+      line-height: 1.6;
+      color: $text-secondary;
+      margin-bottom: 0.75rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem;
+
+    .ageIconWrapper {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+    }
+  }
+}
+
+// Special compliance section
+.complianceCard {
+  background-color: $white;
+  border: 1px solid rgba($primary-color, 0.06);
+  border-radius: 20px;
+  padding: 2.25rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  box-shadow: $shadow-sm;
+
+  .complianceLogo {
+    background: linear-gradient(135deg, #34a853 0%, #188038 100%);
+    color: $white;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(#34a853, 0.3);
+  }
+
+  .complianceText {
+    flex: 1;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: $primary-color;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.975rem;
+      line-height: 1.6;
+      color: $text-secondary;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+}
+
+// Reporting Center Panel
+.reportingPanel {
+  background-color: $white;
+  border: 2px solid rgba($primary-color, 0.1);
+  border-radius: 24px;
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: $primary-gradient;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: $primary-color;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    svg {
+      color: $primary-light;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $text-secondary;
+    margin-bottom: 1.75rem;
+  }
+}
+
+.reportingGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.reportMethod {
+  background-color: $bg-beige;
+  border: 1px dashed rgba($primary-color, 0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $primary-color;
+    background-color: rgba($primary-color, 0.02);
+  }
+
+  .methodIcon {
+    background-color: $white;
+    color: $primary-color;
+    border: 1px solid rgba($primary-color, 0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: $shadow-sm;
+  }
+
+  .methodInfo {
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: $primary-color;
+      margin-bottom: 0.25rem;
+    }
+
+    a {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: $primary-light;
+      word-break: break-all;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $primary-color;
+        text-decoration: underline;
+      }
+    }
+
+    span {
+      font-size: 0.9rem;
+      color: $text-muted;
+      display: block;
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+// Copyright and footer elements on safety page
+.copyright {
+  font-size: 0.875rem;
+  color: $text-muted;
+  margin-top: 3.5rem;
+  text-align: center;
+  border-top: 1px solid rgba($primary-color, 0.06);
+  padding-top: 2rem;
+}
