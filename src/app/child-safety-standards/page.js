@@ -219,7 +219,7 @@ export default function ChildSafetyStandardsPage() {
                   </div>
                   <h3 className={styles.cardTitle}>Report & Block Features</h3>
                   <p className={styles.cardDesc}>
-                    Every member profile includes prominent, easy-to-use "Report" and "Block" controls, empowering our users
+                    Every member profile includes prominent, easy-to-use &ldquo;Report&rdquo; and &ldquo;Block&rdquo; controls, empowering our users
                     to instantly flag suspicious activities, profiles, or communications directly.
                   </p>
                 </div>
@@ -289,9 +289,10 @@ export default function ChildSafetyStandardsPage() {
                 <div className={styles.ageDetails}>
                   <h3>Strict Age Limitation</h3>
                   <p>
-                    All active users must be **18 years of age or older** to create an account, browse profiles, or communicate
-                    with matches on our web platform or mobile applications.
+                    All active users must be **18 years of age or older** to register, submit details, or communicate
+                    with our matchmaking team on our website.
                   </p>
+
                   <p>
                     Identity verification is mandatory during registration. If we identify, discover, or suspect any account
                     belonging to an individual under the age of 18, that profile is immediately suspended and permanently deleted
@@ -309,7 +310,7 @@ export default function ChildSafetyStandardsPage() {
               </h2>
               <p>
                 Safety is a collective responsibility. If you notice any profile displaying inappropriate text, suspicious age details,
-                violative photos, or grooming behaviors, please report it immediately:
+                or violative content, please report it immediately:
               </p>
 
               <div className={styles.reportingPanel}>
@@ -318,9 +319,7 @@ export default function ChildSafetyStandardsPage() {
                   <span>How to Report a Concern</span>
                 </h3>
                 <p>
-                  You can tap the **"Report Profile"** button visible on the candidate's detailed profile view to instantly alert
-                  our systems. Alternatively, you can reach out directly to our dedicated safety response desk with descriptions,
-                  screenshots, or profile names:
+                  You can reach out directly to our dedicated safety response team via email or web contact form:
                 </p>
 
                 <div className={styles.reportingGrid}>
@@ -332,7 +331,7 @@ export default function ChildSafetyStandardsPage() {
                     <div className={styles.methodInfo}>
                       <h4>Direct Safety Email</h4>
                       <a href="mailto:mdahir8140@gmail.com">mdahir8140@gmail.com</a>
-                      <span>Monitored 24/7 for safety violations</span>
+                      <span>Monitored 24/7 for safety concerns</span>
                     </div>
                   </div>
 
@@ -341,9 +340,9 @@ export default function ChildSafetyStandardsPage() {
                       <Globe size={18} />
                     </div>
                     <div className={styles.methodInfo}>
-                      <h4>Support Web Desk</h4>
+                      <h4>Support Desk</h4>
                       <a href="https://ahirmilap.com/contact" target="_blank" rel="noopener noreferrer">ahirmilap.com/contact</a>
-                      <span>Official ticketing system</span>
+                      <span>Official contact form</span>
                     </div>
                   </div>
 
@@ -358,7 +357,7 @@ export default function ChildSafetyStandardsPage() {
                 <span>5. Compliance Statement</span>
               </h2>
               <p>
-                AhirMilap.com operates in complete alignment with global and regional mobile app distribution policies:
+                AhirMilap.com operates in complete alignment with statutory requirements and digital safety standards:
               </p>
 
               <div className={styles.complianceCard}>
@@ -366,11 +365,10 @@ export default function ChildSafetyStandardsPage() {
                   <Shield size={28} />
                 </div>
                 <div className={styles.complianceText}>
-                  <h3>Google Play Console Policy Compliance</h3>
+                  <h3>Digital Safety & Community Standards</h3>
                   <p>
-                    AhirMilap.com strictly complies with the **Google Play Child Safety Standards Policy** for social and matchmaking platforms.
-                    We are dedicated to working continuously, upgrading our monitoring technologies, and working hand-in-hand with authorities
-                    to maintain a safe, wholesome, and completely secure community environment.
+                    AhirMilap.com strictly complies with applicable child protection laws and digital safety guidelines for matrimonial platforms.
+                    We are dedicated to maintaining a safe, wholesome, and completely secure community environment for all families.
                   </p>
                 </div>
               </div>

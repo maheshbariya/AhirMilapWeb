@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Globe, Menu, X } from 'lucide-react';
+import { Globe, Menu, X, UserPlus } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './Header.module.scss';
 
@@ -17,9 +17,9 @@ const Header = () => {
   const navLinks = [
     { href: '/', label: t('nav_home') },
     { href: '/about', label: t('nav_about') },
-    { href: '/privacy', label: t('nav_privacy') },
+    { href: '/#how-it-works', label: t('nav_how_it_works') },
     { href: '/contact', label: t('nav_contact') },
-    { href: '/login', label: t('nav_login') },
+    { href: '/register', label: t('nav_register'), isCta: true },
   ];
 
   // Track window scroll to toggle sticky state
@@ -91,7 +91,7 @@ const Header = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={isActive(link.href)}
+                    className={`${isActive(link.href)} ${link.isCta ? styles.registerCtaBtn : ''}`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}
@@ -128,7 +128,7 @@ const Header = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={isActive(link.href)}
+                    className={`${isActive(link.href)} ${link.isCta ? styles.mobileRegisterBtn : ''}`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}
@@ -149,3 +149,4 @@ const Header = () => {
 };
 
 export default Header;
+

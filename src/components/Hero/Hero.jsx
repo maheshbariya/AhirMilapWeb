@@ -1,5 +1,7 @@
 "use client";
 
+import Link from 'next/link';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import styles from './Hero.module.scss';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
@@ -20,51 +22,16 @@ const Hero = () => {
           <h1 className={styles.title}>{t('hero_title')}</h1>
           <p className={styles.subtitle}>{t('hero_subtitle')}</p>
 
-          {/* <div className={styles.searchBox}>
-            <div className={styles.searchTitle}>Quick Match Search</div>
-            <div className={styles.form}>
-              <div className={styles.fieldGroup}>
-                <div className={styles.field}>
-                  <label>I am</label>
-                  <select defaultValue="Male">
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
-                </div>
-                <div className={styles.field}>
-                  <label>Looking for</label>
-                  <select defaultValue="Female">
-                    <option>Female</option>
-                    <option>Male</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className={styles.fieldGroup}>
-                <div className={styles.field}>
-                  <label>Region</label>
-                  <select defaultValue="Any">
-                    <option>Any</option>
-                    <option>Gujarat</option>
-                    <option>Maharashtra</option>
-                    <option>Delhi</option>
-                  </select>
-                </div>
-                <div className={styles.field}>
-                  <label>City</label>
-                  <select defaultValue="All Cities">
-                    <option>All Cities</option>
-                    <option>Rajkot</option>
-                    <option>Mumbai</option>
-                    <option>Ahmedabad</option>
-                  </select>
-                </div>
-              </div>
-
-              <button className={styles.submitBtn}>Show Matches</button>
-            </div>
-            <div className={styles.searchFooter}>Honoring Ahir traditions and heritage</div>
-          </div> */}
+          <div className={styles.ctaGroup}>
+            <Link href="/register" className={styles.primaryCta}>
+              <span>{t('hero_cta_register')}</span>
+              <ArrowRight size={18} />
+            </Link>
+            <a href="#how-it-works" className={styles.secondaryCta}>
+              <span>{t('hero_cta_how')}</span>
+              <ChevronDown size={18} />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -72,3 +39,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

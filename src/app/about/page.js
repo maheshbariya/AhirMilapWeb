@@ -216,7 +216,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. PREMIUM PROFILES SECTION */}
+      {/* 4. CONFIDENTIAL MATCHMAKING SERVICE HIGHLIGHTS */}
       <section className={styles.profilesSection}>
         <div className="container">
           <div className={styles.profilesGrid}>
@@ -228,37 +228,37 @@ export default function AboutPage() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <span className={styles.sectionLabel}>ELITE PROFILES</span>
-              <h2 className={styles.sectionTitle}>{t('about_profiles_title')}</h2>
+              <span className={styles.sectionLabel}>OUR PROMISE</span>
+              <h2 className={styles.sectionTitle}>Confidential & Personalized Service</h2>
               <p className={styles.description}>
-                {t('about_profiles_content')}
+                AhirMilap helps individuals and families find a suitable life partner based on their preferences. Your registration information remains confidential and is shared only with suitable profiles according to your preferences. If you select a profile, we assist in coordinating a meeting between the families.
               </p>
 
               <div className={styles.statsGrid}>
                 {/* Stat 1 */}
                 <div className={styles.statCard}>
-                  <span className={styles.statNumber}>{t('about_stat_verified_val')}</span>
-                  <span className={styles.statLabel}>{t('about_stat_verified_lbl')}</span>
+                  <span className={styles.statNumber}>100%</span>
+                  <span className={styles.statLabel}>Confidential Profiles</span>
                 </div>
                 {/* Stat 2 */}
                 <div className={styles.statCard}>
-                  <span className={styles.statNumber}>{t('about_stat_families_val')}</span>
-                  <span className={styles.statLabel}>{t('about_stat_families_lbl')}</span>
+                  <span className={styles.statNumber}>Personal</span>
+                  <span className={styles.statLabel}>Assisted Matching</span>
                 </div>
                 {/* Stat 3 */}
                 <div className={styles.statCard}>
-                  <span className={styles.statNumber}>{t('about_stat_secure_val')}</span>
-                  <span className={styles.statLabel}>{t('about_stat_secure_lbl')}</span>
+                  <span className={styles.statNumber}>Verified</span>
+                  <span className={styles.statLabel}>Family Records</span>
                 </div>
                 {/* Stat 4 */}
                 <div className={styles.statCard}>
-                  <span className={styles.statNumber}>{t('about_stat_community_val')}</span>
-                  <span className={styles.statLabel}>{t('about_stat_community_lbl')}</span>
+                  <span className={styles.statNumber}>Ahir</span>
+                  <span className={styles.statLabel}>Community Focus</span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Visual profiles showcase with blurred premium cards */}
+            {/* Service Process Visual */}
             <motion.div 
               className={styles.profilesVisual}
               variants={staggerContainer}
@@ -268,60 +268,36 @@ export default function AboutPage() {
             >
               <div className={styles.visualBg}></div>
               
-              {/* Profile Card 1 - Doctor */}
               <motion.div className={styles.profileBlurCard} variants={cardVariants}>
                 <div className={styles.avatarPlaceholder}>
-                  <span>D</span>
-                  <div className={styles.badge}><Check size={12} strokeWidth={3} /></div>
+                  <Lock size={20} className="text-white" />
                 </div>
-                <h4 className={styles.cardTitle}>Dr. Aarti Ahir</h4>
-                <span className={styles.cardSubtitle}>M.B.B.S, M.D. Doctor</span>
-                <div className={styles.detailsMock}>
-                  <div className={styles.mockLine}></div>
-                  <div className={styles.mockLine}></div>
-                </div>
+                <h4 className={styles.cardTitle}>1. Registration & Privacy</h4>
+                <span className={styles.cardSubtitle}>Your details are kept confidential</span>
               </motion.div>
 
-              {/* Profile Card 2 - Engineer */}
               <motion.div className={styles.profileBlurCard} variants={cardVariants}>
                 <div className={styles.avatarPlaceholder}>
-                  <span>R</span>
-                  <div className={styles.badge}><Check size={12} strokeWidth={3} /></div>
+                  <Sliders size={20} className="text-white" />
                 </div>
-                <h4 className={styles.cardTitle}>Rohit Ahir</h4>
-                <span className={styles.cardSubtitle}>Software Engineer, MNC</span>
-                <div className={styles.detailsMock}>
-                  <div className={styles.mockLine}></div>
-                  <div className={styles.mockLine}></div>
-                </div>
+                <h4 className={styles.cardTitle}>2. Preference Review</h4>
+                <span className={styles.cardSubtitle}>Understanding your expectations</span>
               </motion.div>
 
-              {/* Profile Card 3 - Govt Employee */}
               <motion.div className={styles.profileBlurCard} variants={cardVariants}>
                 <div className={styles.avatarPlaceholder}>
-                  <span>P</span>
-                  <div className={styles.badge}><Check size={12} strokeWidth={3} /></div>
+                  <ShieldCheck size={20} className="text-white" />
                 </div>
-                <h4 className={styles.cardTitle}>Pooja Ahir</h4>
-                <span className={styles.cardSubtitle}>Govt. Officer, Class I</span>
-                <div className={styles.detailsMock}>
-                  <div className={styles.mockLine}></div>
-                  <div className={styles.mockLine}></div>
-                </div>
+                <h4 className={styles.cardTitle}>3. Private Sharing</h4>
+                <span className={styles.cardSubtitle}>Suitable matches shared personally</span>
               </motion.div>
 
-              {/* Profile Card 4 - Business Owner */}
               <motion.div className={styles.profileBlurCard} variants={cardVariants}>
                 <div className={styles.avatarPlaceholder}>
-                  <span>K</span>
-                  <div className={styles.badge}><Check size={12} strokeWidth={3} /></div>
+                  <Users size={20} className="text-white" />
                 </div>
-                <h4 className={styles.cardTitle}>Krunal Ahir</h4>
-                <span className={styles.cardSubtitle}>Business Owner, Rajkot</span>
-                <div className={styles.detailsMock}>
-                  <div className={styles.mockLine}></div>
-                  <div className={styles.mockLine}></div>
-                </div>
+                <h4 className={styles.cardTitle}>4. Family Meeting</h4>
+                <span className={styles.cardSubtitle}>Assisting family coordination</span>
               </motion.div>
             </motion.div>
 
@@ -448,7 +424,7 @@ export default function AboutPage() {
             </p>
 
             <div className={styles.ctaButtons}>
-              <Link href="/">
+              <Link href="/register">
                 <button className={styles.ctaBtnPrimary}>
                   {t('about_cta_btn1')}
                 </button>

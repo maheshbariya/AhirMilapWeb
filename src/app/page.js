@@ -1,9 +1,9 @@
 import Hero from '@/components/Hero/Hero';
 import StatsBar from '@/components/StatsBar/StatsBar';
 import About from '@/components/About/About';
-import FeatureGrid from '@/components/AppFeatures/FeatureGrid';
-import FeatureChat from '@/components/AppFeatures/FeatureChat';
 import AppTeaser from '@/components/AppTeaser/AppTeaser';
+import Confidentiality from '@/components/Confidentiality/Confidentiality';
+import WhyAhirMilap from '@/components/WhyAhirMilap/WhyAhirMilap';
 import TestimonialBanner from '@/components/TestimonialBanner/TestimonialBanner';
 import Testimonials from '@/components/Testimonials/Testimonials';
 
@@ -14,10 +14,11 @@ export default function Home() {
       <StatsBar />
       <About />
       <AppTeaser />
-      <FeatureChat />
-      <FeatureGrid />
+      <Confidentiality />
+      <WhyAhirMilap />
       <TestimonialBanner />
       <Testimonials />
     </main>
   );
 }
+

@@ -1,0 +1,139 @@
+@import '../../styles/variables';
+
+.section {
+  padding: 5rem 0;
+  background: $white;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 3.5rem 0;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.subtitle {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: $primary-color;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: $text-main;
+  line-height: 1.25;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 1.75rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.card {
+  background: #FAF8F5;
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  border: 1px solid rgba(126, 29, 43, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(126, 29, 43, 0.08);
+    border-color: rgba(126, 29, 43, 0.2);
+    background: $white;
+  }
+}
+
+.featuredCard {
+  background: linear-gradient(145deg, #FFF9F3 0%, #FDF4EB 100%);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.number {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: rgba(126, 29, 43, 0.3);
+}
+
+.iconBox {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: $primary-color;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(126, 29, 43, 0.15);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $text-main;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+
+.cardDesc {
+  font-size: 0.9375rem;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.ctaWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.25rem;
+  background: $primary-color;
+  color: $white;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(126, 29, 43, 0.25);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: darken(#7E1D2B, 8%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(126, 29, 43, 0.35);
+  }
+}

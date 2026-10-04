@@ -168,7 +168,7 @@ export default function LoginPage() {
               <span>{t('login_or')}</span>
             </div>
 
-            <Link href="/contact" className={styles.createLink}>
+            <Link href="/register" className={styles.createLink}>
               <UserPlus size={18} />
               <span>{t('login_create_profile')}</span>
             </Link>

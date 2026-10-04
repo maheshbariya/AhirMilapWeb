@@ -98,7 +98,7 @@ const FeatureGrid = () => {
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
                 <MessageCircle size={28} />
-                <span>Instant Chat</span>
+                <span>{t('floating_badge_text')}</span>
               </motion.div>
             </div>
           </motion.div>
