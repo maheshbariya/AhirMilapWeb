@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import SocialIcon from '@/components/SocialIcon/SocialIcon';
 import styles from './Footer.module.scss';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -28,6 +29,14 @@ const Footer = () => {
             <p className={styles.description}>
               {t('footer_tagline')}
             </p>
+            <div className={styles.social}>
+              <a className={styles.socialIcon} href="https://www.facebook.com/share/1GbU9VyuDk/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <SocialIcon name="facebook" />
+              </a>
+              <a className={styles.socialIcon} href="https://www.instagram.com/ahirmilap03?stkn=YTJraXl4bmluZTc2&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <SocialIcon name="instagram" />
+              </a>
+            </div>
           </div>
           
           <div className={styles.linksColumn}>
@@ -58,11 +67,11 @@ const Footer = () => {
               </li>
               <li>
                 <Phone size={18} className={styles.icon} />
-                <span>+91 81402 10371</span>
+                <a href="tel:+919106944950">+91 91069 44950</a>
               </li>
               <li>
                 <Mail size={18} className={styles.icon} />
-                <span>mdahir8140@gmail.com</span>
+                <a href="mailto:Ahirmilap03@gmail.com">Ahirmilap03@gmail.com</a>
               </li>
             </ul>
           </div>

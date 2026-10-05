@@ -1,168 +1,261 @@
 @import '../../styles/variables';
 
 .section {
+  position: relative;
+  overflow: hidden;
   padding: 5rem 0;
-  background: linear-gradient(180deg, #FAFAFA 0%, #F5F0EB 100%);
+  color: $white;
+  background:
+    radial-gradient(ellipse at 13% 50%, rgba($accent-color, 0.12), transparent 28rem),
+    linear-gradient(120deg, #681725 0%, $primary-color 55%, #5f1420 100%);
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 14rem;
+    height: 14rem;
+    border: 1px solid rgba($accent-color, 0.1);
+    border-radius: 50%;
+    content: '';
+    pointer-events: none;
+  }
+
+  &::before {
+    top: -9rem;
+    left: -7rem;
+  }
+
+  &::after {
+    right: -8rem;
+    bottom: -10rem;
+  }
 
   @media (max-width: $breakpoint-md) {
-    padding: 3.5rem 0;
+    padding: 4rem 0;
   }
 }
 
-.card {
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.layout {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 3.5rem;
+  grid-template-columns: minmax(125px, 0.7fr) minmax(270px, 1.3fr) 1px minmax(400px, 1.8fr);
   align-items: center;
-  background: $white;
-  padding: 3.5rem 4rem;
-  border-radius: 28px;
-  box-shadow: 0 15px 45px rgba(126, 29, 43, 0.06);
-  border: 1px solid rgba(126, 29, 43, 0.08);
-
-  @media (max-width: $breakpoint-lg) {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 2.5rem;
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    padding: 1.75rem 1.25rem;
-    border-radius: 20px;
-  }
+  gap: clamp(1.5rem, 3vw, 3.25rem);
 }
 
-.badge {
-  display: inline-flex;
+.visual {
+  position: relative;
+  display: flex;
+  min-height: 190px;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1rem;
-  background: rgba(126, 29, 43, 0.07);
-  color: $primary-color;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  border-radius: 999px;
-  margin-bottom: 1.25rem;
+  justify-content: center;
+}
+
+.visualGlow {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: rgba($accent-color, 0.14);
+  filter: blur(26px);
+}
+
+.shieldFrame {
+  position: relative;
+  display: grid;
+  width: 150px;
+  height: 165px;
+  place-items: center;
+  color: $accent-color;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.22));
+}
+
+.shieldIcon {
+  width: 100%;
+  height: 100%;
+  fill: rgba($primary-color, 0.46);
+}
+
+.lockMark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 62px;
+  height: 62px;
+  place-items: center;
+  border: 1px solid rgba($accent-color, 0.55);
+  border-radius: 50%;
+  color: $accent-color;
+  background: rgba($primary-color, 0.92);
+  transform: translate(-50%, -50%);
+}
+
+.intro {
+  min-width: 0;
 }
 
 .heading {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: $text-main;
-  line-height: 1.25;
-  margin-bottom: 1.25rem;
+  margin: 0 0 0.65rem;
+  color: $white;
+  font-size: clamp(2rem, 3vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1.12;
+}
 
-  @media (max-width: $breakpoint-md) {
-    font-size: 1.75rem;
-  }
+.lead {
+  margin: 0 0 0.85rem;
+  color: $white;
+  font-size: clamp(1.1rem, 1.65vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .text {
-  font-size: 1.0625rem;
-  line-height: 1.75;
-  color: $text-secondary;
-  margin-bottom: 2rem;
+  max-width: 510px;
+  margin: 0;
+  color: rgba($white, 0.86);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
 
-  @media (max-width: $breakpoint-md) {
-    font-size: 1rem;
-  }
+.divider {
+  width: 1px;
+  height: 100%;
+  min-height: 150px;
+  background: linear-gradient(transparent, rgba($accent-color, 0.55), transparent);
 }
 
 .pillars {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1.25rem;
 }
 
 .pillar {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.25rem;
-  padding: 1rem 1.25rem;
-  background: rgba(245, 240, 235, 0.5);
-  border-radius: 16px;
-  border: 1px solid rgba(126, 29, 43, 0.06);
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr);
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.pillarIcon {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  border: 1px solid rgba($accent-color, 0.9);
+  border-radius: 50%;
+  color: $accent-color;
+  background: rgba($white, 0.025);
+}
+
+.pillarCopy {
+  min-width: 0;
+
+  h3 {
+    margin: 0 0 0.2rem;
+    color: $white;
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  p {
+    margin: 0;
+    color: rgba($white, 0.82);
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .layout {
+    grid-template-columns: minmax(110px, 0.55fr) minmax(250px, 1.15fr) 1px minmax(350px, 1.8fr);
+    gap: 1.5rem;
+  }
+
+  .pillars {
+    gap: 1.25rem 0.9rem;
+  }
+
+  .pillar {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 0.65rem;
+  }
 
   .pillarIcon {
     width: 44px;
     height: 44px;
-    border-radius: 12px;
-    background: $primary-color;
-    color: $white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: $text-main;
-    margin-bottom: 0.25rem;
-  }
-
-  p {
-    font-size: 0.875rem;
-    color: $text-muted;
-    line-height: 1.4;
-    margin: 0;
   }
 }
 
-
-.visualSide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.shieldWrapper {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  display: flex;
-  justify-content: center;
-}
-
-.outerGlow {
-  position: absolute;
-  inset: -15px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(126, 29, 43, 0.08) 60%, transparent 75%);
-  border-radius: 50%;
-  filter: blur(20px);
-}
-
-.shieldCard {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 12%) 100%);
-  padding: 3rem 2rem;
-  border-radius: 24px;
-  text-align: center;
-  color: $white;
-  box-shadow: 0 20px 40px rgba(126, 29, 43, 0.25);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-
-  .shieldIcon {
-    color: #D4AF37;
-    margin-bottom: 1.25rem;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+@media (max-width: $breakpoint-lg) {
+  .layout {
+    grid-template-columns: minmax(110px, 0.45fr) minmax(0, 1fr);
+    gap: 1.75rem 2rem;
   }
 
-  .shieldLabel {
-    display: block;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: $white;
-    margin-bottom: 0.5rem;
+  .divider {
+    display: none;
   }
 
-  .shieldSub {
-    display: block;
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.8);
+  .pillars {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .visual {
+    min-height: 115px;
+  }
+
+  .shieldFrame {
+    width: 98px;
+    height: 108px;
+  }
+
+  .lockMark {
+    width: 44px;
+    height: 44px;
+  }
+
+  .lockMark svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .intro {
+    text-align: center;
+  }
+
+  .text {
+    margin: 0 auto;
+  }
+
+  .pillars {
+    grid-column: auto;
+    gap: 1.2rem 1rem;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .pillars {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pillar {
+    grid-template-columns: 44px minmax(0, 1fr);
   }
 }

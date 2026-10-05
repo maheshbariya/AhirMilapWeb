@@ -1,0 +1,176 @@
+@import '../../styles/variables';
+
+.section {
+  padding: 5.5rem 0;
+  background: $bg-beige;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 4rem 0;
+  }
+}
+
+.container {
+  max-width: 1120px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}
+
+.headingGroup {
+  max-width: 680px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: $primary-color;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  color: $text-main;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: $text-secondary;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.contactLink {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba($primary-color, 0.18);
+  border-radius: 999px;
+  color: $primary-color;
+  background: $white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    color: $white;
+    background: $primary-color;
+    border-color: $primary-color;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($accent-color, 0.55);
+    outline-offset: 3px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 1rem;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  overflow: hidden;
+  border: 1px solid rgba($primary-color, 0.12);
+  border-radius: 14px;
+  background: $white;
+  box-shadow: 0 4px 16px rgba($primary-color, 0.035);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover,
+  &.itemOpen {
+    border-color: rgba($primary-color, 0.3);
+    box-shadow: 0 8px 24px rgba($primary-color, 0.07);
+  }
+}
+
+.questionHeading {
+  margin: 0;
+  font-size: inherit;
+}
+
+.question {
+  display: flex;
+  width: 100%;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  color: $text-main;
+  text-align: left;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+
+  &:focus-visible {
+    outline: 3px solid rgba($accent-color, 0.55);
+    outline-offset: -3px;
+  }
+}
+
+.toggleIcon {
+  display: inline-flex;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: $primary-color;
+  background: rgba($primary-color, 0.07);
+}
+
+.answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.itemOpen .answer {
+  grid-template-rows: 1fr;
+}
+
+.answerInner {
+  overflow: hidden;
+
+  p {
+    margin: 0;
+    padding: 0 1.25rem 1.2rem;
+    color: $text-secondary;
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .contactLink,
+  .answer {
+    transition: none;
+  }
+}

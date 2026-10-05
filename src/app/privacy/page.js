@@ -172,8 +172,8 @@ export default function PrivacyPage() {
               <h2>{t('privacy_contact_title')}</h2>
               <p>{t('privacy_contact_content')}</p>
               <div className={styles.contactDetails}>
-                <strong>{t('privacy_contact_email')}</strong><br />
-                <strong>{t('privacy_contact_phone')}</strong><br />
+                <strong>Email:</strong> <a href="mailto:Ahirmilap03@gmail.com">Ahirmilap03@gmail.com</a><br />
+                <strong>Phone:</strong> <a href="tel:+919106944950">+91 91069 44950</a><br />
                 <strong>{t('privacy_contact_address')}</strong>
               </div>
               

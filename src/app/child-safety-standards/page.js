@@ -330,7 +330,7 @@ export default function ChildSafetyStandardsPage() {
                     </div>
                     <div className={styles.methodInfo}>
                       <h4>Direct Safety Email</h4>
-                      <a href="mailto:mdahir8140@gmail.com">mdahir8140@gmail.com</a>
+                      <a href="mailto:Ahirmilap03@gmail.com">Ahirmilap03@gmail.com</a>
                       <span>Monitored 24/7 for safety concerns</span>
                     </div>
                   </div>
@@ -386,7 +386,7 @@ export default function ChildSafetyStandardsPage() {
               </p>
 
               <div className={styles.contactDetails}>
-                <strong>Email:</strong> <a href="mailto:mdahir8140@gmail.com" style={{ color: '#7E1D2B', fontWeight: 700 }}>mdahir8140@gmail.com</a><br />
+                <strong>Email:</strong> <a href="mailto:Ahirmilap03@gmail.com" style={{ color: '#7E1D2B', fontWeight: 700 }}>Ahirmilap03@gmail.com</a><br />
                 <strong>Website:</strong> <a href="https://ahirmilap.com" target="_blank" rel="noopener noreferrer" style={{ color: '#7E1D2B', fontWeight: 700 }}>https://ahirmilap.com</a><br />
                 <strong>Primary Contact:</strong> Ahmedabad, Gujarat, India
               </div>

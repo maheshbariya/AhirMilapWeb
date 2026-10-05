@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-image: url('/images/HeroBanner.jpg');
+  background-image: url('/images/hero-dektop.png');
   background-size: cover;
   background-position: center;
 
@@ -54,6 +54,7 @@
 @media (max-width: $breakpoint-md) {
   .hero {
     min-height: 720px;
+    background-image: url('/images/hero-mobile.png');
     background-position: center top;
   }
 

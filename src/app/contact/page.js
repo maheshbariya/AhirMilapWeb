@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { Mail, Phone, MapPin, Clock, Send, Check } from 'lucide-react';
+import SocialIcon from '@/components/SocialIcon/SocialIcon';
 import styles from './ContactPage.module.scss';
 
 export default function ContactPage() {
@@ -76,8 +77,8 @@ export default function ContactPage() {
               <div className={styles.cardContent}>
                 <h4>{t('contact_info_phone_lbl')}</h4>
                 <p>
-                  <a href="tel:+918140210371" style={{ color: 'inherit', textDecoration: 'none', fontWeight: 700 }}>
-                    +91 81402 10371
+                  <a href="tel:+919106944950" style={{ color: 'inherit', textDecoration: 'none', fontWeight: 700 }}>
+                    +91 91069 44950
                   </a>
                 </p>
                 <p style={{ fontSize: '0.8125rem', color: '#888', marginTop: '0.25rem' }}>
@@ -94,12 +95,32 @@ export default function ContactPage() {
               <div className={styles.cardContent}>
                 <h4>{t('contact_info_email_lbl')}</h4>
                 <p>
-                  <a href="mailto:mdahir8140@gmail.com" style={{ color: 'inherit', textDecoration: 'none', fontWeight: 700 }}>
-                    mdahir8140@gmail.com
+                  <a href="mailto:Ahirmilap03@gmail.com" style={{ color: 'inherit', textDecoration: 'none', fontWeight: 700 }}>
+                    Ahirmilap03@gmail.com
                   </a>
                 </p>
                 <p style={{ fontSize: '0.8125rem', color: '#888', marginTop: '0.25rem' }}>
                   Send your matchmaking queries anytime
+                </p>
+              </div>
+            </div>
+
+            {/* Social Media Card */}
+            <div className={styles.infoCard}>
+              <div className={styles.iconWrapper}>
+                <SocialIcon name="instagram" size={24} />
+              </div>
+              <div className={styles.cardContent}>
+                <h4>{t('contact_info_social_lbl')}</h4>
+                <p>
+                  <a href={'https://www.instagram.com/ahirmilap03?stkn=YTJraXl4bmluZTc2&utm_source=qr'} target="_blank" rel="noopener noreferrer">
+                    <SocialIcon name="instagram" size={15} /> {t('contact_info_instagram')}
+                  </a>
+                </p>
+                <p>
+                  <a href={'https://www.facebook.com/share/1GbU9VyuDk/?mibextid=wwXIfr'} target="_blank" rel="noopener noreferrer">
+                    <SocialIcon name="facebook" size={15} /> {t('contact_info_facebook')}
+                  </a>
                 </p>
               </div>
             </div>

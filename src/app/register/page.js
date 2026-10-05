@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ShieldCheck, Heart } from 'lucide-react';
+import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './RegisterPage.module.scss';
 
@@ -13,7 +13,6 @@ export default function RegisterPage() {
   const [submitting, setSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
-    // Personal Details
     fullName: '',
     gender: 'Male',
     dateOfBirth: '',
@@ -22,44 +21,15 @@ export default function RegisterPage() {
     currentCity: '',
     nativePlace: '',
 
-    // Family Details
     fatherName: '',
     motherName: '',
     siblings: '',
-    familyDetails: '',
-
-    // Education & Profession
     education: '',
     occupation: '',
-    company: '',
     incomeRange: '',
-
-    // Lifestyle
     height: '',
     maritalStatus: 'Never Married',
-    diet: 'Vegetarian',
-    lifestyle: '',
-    hobbies: '',
-
-    // Partner Preferences
-    preferredAgeRange: '',
-    preferredHeightRange: '',
-    educationPreference: '',
-    professionPreference: '',
-    preferredLocation: '',
-    maritalStatusPreference: 'Never Married',
-    lifestylePreference: '',
-    otherExpectations: '',
-
-    // Additional Information
-    aboutYourself: '',
-    aboutFamily: '',
-    additionalExpectations: '',
-
-    // Contact Preference
-    preferredContactMethod: 'WhatsApp',
-
-    // Consent
+    partnerPreferences: '',
     consentAgreed: false,
   });
 
@@ -122,8 +92,6 @@ export default function RegisterPage() {
             </div>
 
             <form onSubmit={handleSubmit} className={styles.registerForm}>
-
-              {/* 1. PERSONAL DETAILS */}
               <div className={styles.sectionBlock}>
                 <h2 className={styles.sectionTitle}>{t('reg_sec_personal')}</h2>
                 <div className={styles.gridTwo}>
@@ -218,7 +186,6 @@ export default function RegisterPage() {
                 </div>
               </div>
 
-              {/* 2. FAMILY DETAILS */}
               <div className={styles.sectionBlock}>
                 <h2 className={styles.sectionTitle}>{t('reg_sec_family')}</h2>
                 <div className={styles.gridTwo}>
@@ -228,7 +195,7 @@ export default function RegisterPage() {
                       id="fatherName"
                       name="fatherName"
                       type="text"
-                      placeholder="Father's full name & profession"
+                      placeholder="Father's name"
                       value={formData.fatherName}
                       onChange={handleChange}
                     />
@@ -245,34 +212,20 @@ export default function RegisterPage() {
                       onChange={handleChange}
                     />
                   </div>
-
                   <div className={`${styles.formGroup} ${styles.fullWidth}`}>
                     <label htmlFor="siblings">{t('field_siblings')}</label>
                     <input
                       id="siblings"
                       name="siblings"
                       type="text"
-                      placeholder="e.g. 1 Elder Brother (Married), 1 Sister"
+                      placeholder="e.g. 1 elder brother, 1 sister"
                       value={formData.siblings}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                    <label htmlFor="familyDetails">{t('field_family_details')}</label>
-                    <textarea
-                      id="familyDetails"
-                      name="familyDetails"
-                      rows={3}
-                      placeholder="Brief details about your family, lineage, joint/nuclear family background..."
-                      value={formData.familyDetails}
                       onChange={handleChange}
                     />
                   </div>
                 </div>
               </div>
 
-              {/* 3. EDUCATION & PROFESSION */}
               <div className={styles.sectionBlock}>
                 <h2 className={styles.sectionTitle}>{t('reg_sec_edu_prof')}</h2>
                 <div className={styles.gridTwo}>
@@ -301,19 +254,6 @@ export default function RegisterPage() {
                       required
                     />
                   </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="company">{t('field_company')}</label>
-                    <input
-                      id="company"
-                      name="company"
-                      type="text"
-                      placeholder="Company name or business description"
-                      value={formData.company}
-                      onChange={handleChange}
-                    />
-                  </div>
-
                   <div className={styles.formGroup}>
                     <label htmlFor="incomeRange">{t('field_income')}</label>
                     <select
@@ -333,7 +273,6 @@ export default function RegisterPage() {
                 </div>
               </div>
 
-              {/* 4. LIFESTYLE */}
               <div className={styles.sectionBlock}>
                 <h2 className={styles.sectionTitle}>{t('reg_sec_lifestyle')}</h2>
                 <div className={styles.gridTwo}>
@@ -372,172 +311,23 @@ export default function RegisterPage() {
                       <option value="Awaiting Divorce">Awaiting Divorce</option>
                     </select>
                   </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="diet">{t('field_diet')}</label>
-                    <select
-                      id="diet"
-                      name="diet"
-                      value={formData.diet}
-                      onChange={handleChange}
-                    >
-                      <option value="Vegetarian">Pure Vegetarian</option>
-                      <option value="Eggetarian">Eggetarian</option>
-                      <option value="Non-Vegetarian">Non-Vegetarian</option>
-                    </select>
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="hobbies">{t('field_hobbies')}</label>
-                    <input
-                      id="hobbies"
-                      name="hobbies"
-                      type="text"
-                      placeholder="Reading, traveling, music, sports..."
-                      value={formData.hobbies}
-                      onChange={handleChange}
-                    />
-                  </div>
                 </div>
               </div>
 
-              {/* 5. PARTNER PREFERENCES */}
               <div className={styles.sectionBlock}>
                 <h2 className={styles.sectionTitle}>{t('reg_sec_pref')}</h2>
                 <div className={styles.gridTwo}>
-                  <div className={styles.formGroup}>
-                    <label htmlFor="preferredAgeRange">{t('field_pref_age')}</label>
-                    <input
-                      id="preferredAgeRange"
-                      name="preferredAgeRange"
-                      type="text"
-                      placeholder="e.g. 23 to 27 years"
-                      value={formData.preferredAgeRange}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="preferredHeightRange">{t('field_pref_height')}</label>
-                    <input
-                      id="preferredHeightRange"
-                      name="preferredHeightRange"
-                      type="text"
-                      placeholder="e.g. 5'2&quot; to 5'7&quot;"
-                      value={formData.preferredHeightRange}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="educationPreference">{t('field_pref_education')}</label>
-                    <input
-                      id="educationPreference"
-                      name="educationPreference"
-                      type="text"
-                      placeholder="e.g. Graduate or Post Graduate"
-                      value={formData.educationPreference}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="professionPreference">{t('field_pref_occupation')}</label>
-                    <input
-                      id="professionPreference"
-                      name="professionPreference"
-                      type="text"
-                      placeholder="e.g. Govt Job, Doctor, Engineer, Corporate..."
-                      value={formData.professionPreference}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="preferredLocation">{t('field_pref_location')}</label>
-                    <input
-                      id="preferredLocation"
-                      name="preferredLocation"
-                      type="text"
-                      placeholder="e.g. Gujarat / Saurashtra / Ahmedabad"
-                      value={formData.preferredLocation}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="maritalStatusPreference">{t('field_pref_marital')}</label>
-                    <select
-                      id="maritalStatusPreference"
-                      name="maritalStatusPreference"
-                      value={formData.maritalStatusPreference}
-                      onChange={handleChange}
-                    >
-                      <option value="Never Married">Never Married Only</option>
-                      <option value="Any">No Preference</option>
-                    </select>
-                  </div>
-
                   <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                    <label htmlFor="otherExpectations">{t('field_pref_other')}</label>
-                    <textarea
-                      id="otherExpectations"
-                      name="otherExpectations"
-                      rows={3}
-                      placeholder="Describe what qualities you expect in your life partner..."
-                      value={formData.otherExpectations}
+                    <label htmlFor="partnerPreferences">{t('field_partner_preferences')}</label>
+                    <input
+                      id="partnerPreferences"
+                      name="partnerPreferences"
+                      type="text"
+                      placeholder={t('field_partner_preferences_placeholder')}
+                      value={formData.partnerPreferences}
                       onChange={handleChange}
                     />
                   </div>
-                </div>
-              </div>
-
-              {/* 6. ADDITIONAL INFORMATION */}
-              <div className={styles.sectionBlock}>
-                <h2 className={styles.sectionTitle}>{t('reg_sec_add_info')}</h2>
-                <div className={styles.gridTwo}>
-                  <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                    <label htmlFor="aboutYourself">{t('field_about_self')}</label>
-                    <textarea
-                      id="aboutYourself"
-                      name="aboutYourself"
-                      rows={3}
-                      placeholder="Write a brief overview about your personality, values, and lifestyle..."
-                      value={formData.aboutYourself}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                    <label htmlFor="aboutFamily">{t('field_about_family')}</label>
-                    <textarea
-                      id="aboutFamily"
-                      name="aboutFamily"
-                      rows={3}
-                      placeholder="Write a brief description of your family environment..."
-                      value={formData.aboutFamily}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* 7. CONTACT PREFERENCE */}
-              <div className={styles.sectionBlock}>
-                <h2 className={styles.sectionTitle}>{t('reg_sec_contact_pref')}</h2>
-                <div className={styles.formGroup}>
-                  <label htmlFor="preferredContactMethod">{t('field_contact_method')} *</label>
-                  <select
-                    id="preferredContactMethod"
-                    name="preferredContactMethod"
-                    value={formData.preferredContactMethod}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option value="Phone Call">Phone Call</option>
-                    <option value="Email">Email</option>
-                  </select>
                 </div>
               </div>
 

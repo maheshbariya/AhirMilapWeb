@@ -417,17 +417,37 @@
 
 .profilesGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 5rem;
   align-items: center;
 
   @media (max-width: $breakpoint-lg) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 4rem;
   }
 }
 
 .profilesContent {
+  min-width: 0;
+
+  .sectionLabel {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    color: $accent-color;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .sectionTitle {
+    max-width: 100%;
+    color: $primary-color;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
   .description {
     font-size: 1.125rem;
     color: $text-secondary;
@@ -443,11 +463,12 @@
 
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
 .statCard {
+  min-width: 0;
   background: rgba($primary-color, 0.02);
   border: 1px solid rgba($primary-color, 0.05);
   border-radius: 20px;
@@ -456,7 +477,7 @@
   transition: all 0.3s ease;
 
   .statNumber {
-    font-size: 2.5rem;
+    font-size: clamp(1.35rem, 7vw, 2.5rem);
     font-weight: 800;
     color: $primary-color;
     margin-bottom: 0.5rem;
@@ -464,10 +485,13 @@
   }
 
   .statLabel {
+    display: block;
     font-size: 0.875rem;
     font-weight: 700;
     color: $text-secondary;
     letter-spacing: 0.02em;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
   }
 
   &:hover {
@@ -475,6 +499,16 @@
     border-color: rgba($accent-color, 0.4);
     box-shadow: $shadow-md;
     transform: translateY(-3px);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .statsGrid {
+    gap: 1rem;
+  }
+
+  .statCard {
+    padding: 1.5rem 0.75rem;
   }
 }
 

@@ -161,7 +161,7 @@ export default function DeleteAccountPage() {
               <p className={styles.supportLabel}>Need help?</p>
               <p>
                 Contact our support team at{' '}
-                <a href="mailto:mdahir8140@gmail.com">mdahir8140@gmail.com</a>
+                <a href="mailto:Ahirmilap03@gmail.com">Ahirmilap03@gmail.com</a>
               </p>
             </div>
           </section>
