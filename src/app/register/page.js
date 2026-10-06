@@ -11,6 +11,7 @@ export default function RegisterPage() {
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -41,18 +42,58 @@ export default function RegisterPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.consentAgreed) {
       alert("Please agree to the matchmaking consent checkbox before submitting.");
       return;
     }
+
+    const payload = {
+      ...formData,
+      dateOfBirth: `${formData.dateOfBirth}T00:00:00.000Z`,
+    };
+
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    setSubmitError('');
+    console.log('[Registration] Submitting payload:', payload);
+
+    try {
+      const response = await fetch('https://transporters033-001-site4.anytempurl.com/api/Registration/register', {
+        method: 'POST',
+        headers: {
+          accept: '*/*',
+          'Content-Type': 'application/json-patch+json',
+        },
+        body: JSON.stringify(payload),
+      });
+      const responseText = await response.text();
+      let responseBody = responseText;
+
+      try {
+        responseBody = responseText ? JSON.parse(responseText) : null;
+      } catch {
+        responseBody = responseText;
+      }
+
+      console.log('[Registration] API response:', {
+        status: response.status,
+        ok: response.ok,
+        body: responseBody,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Registration failed with status ${response.status}`);
+      }
+
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1000);
+    } catch (error) {
+      console.error('[Registration] Submission error:', error);
+      setSubmitError('We could not submit your registration. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -348,6 +389,7 @@ export default function RegisterPage() {
 
               {/* SUBMIT BUTTON */}
               <div className={styles.submitWrapper}>
+                {submitError && <p role="alert">{submitError}</p>}
                 <button
                   type="submit"
                   className={styles.submitBtn}
