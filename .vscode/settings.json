@@ -1,0 +1,5 @@
+{
+  "terminal.integrated.env.windows": {
+    "Path": "${env:Path};D:\\React JS\\node-v20.16.0-win-x64\\node-v20.16.0-win-x64"
+  }
+}
