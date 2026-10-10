@@ -11,8 +11,8 @@ const About = () => {
   return (
     <section className={styles.about}>
       <div className="container">
-        <div className={styles.flex}>
-          <motion.div 
+        <div className={styles.flex} >
+          <motion.div
             className={styles.content}
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -32,7 +32,7 @@ const About = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className={styles.imageGrid}
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
