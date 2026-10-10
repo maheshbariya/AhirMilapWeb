@@ -11,7 +11,7 @@ const About = () => {
   return (
     <section className={styles.about}>
       <div className="container">
-        <div className={styles.flex} >
+        <div className={styles.flex}>
           <motion.div
             className={styles.content}
             initial={{ opacity: 0, x: -30 }}
